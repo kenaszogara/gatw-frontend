@@ -24,7 +24,10 @@ export default function ArticlePreview(props) {
       </div>
       {
         image &&
-        <img src={`/images/articles/${image}`} alt={image_desc} className={styles.streamImage}/>
+        <div className={styles.streamImage}>
+          <img src={`/images/articles/${image}`} alt={image_desc} />
+        </div>
+        
       }
       
     </article>
