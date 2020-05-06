@@ -1,0 +1,61 @@
+$darkGrey: #808080;
+$white: #FFFFFF;
+$black: #474747;
+$crem: #DE8E8E;
+
+.streamItem {
+  //border: 1px solid black;
+  
+  display: flex;
+  flex-direction: row;
+  max-width: 680px;
+  width: 100%;
+
+  background-color: $white;
+  margin-top: 1em;
+}
+
+.streamPreview {
+  margin-right: auto;
+  padding: 18px;
+
+  a {
+    text-decoration: none;
+  }
+
+  h4{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 22px;
+  }
+
+  p {
+    margin: 0;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
+
+.streamPreviewFooter {
+  margin-top: 10px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 13px;
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.streamImage {
+  max-width: 200px;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}

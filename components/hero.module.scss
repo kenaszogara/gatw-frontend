@@ -1,0 +1,53 @@
+$light-grey: #C4C4C4;
+
+
+.heroImage {
+  /*
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/mekong_river_1.png");
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  */
+  margin: 6em 0;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: inherit;
+ 
+  h1 {
+    font-family: 'Poppins';
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    margin: 0;
+
+    text-transform: uppercase;
+  }
+
+  h4 {
+    font-family: 'Poppins';
+    font-weight: 800;
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+  }
+}
+
+.categoryContainer {
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5em 0;
+
+}
+
+.markedText {
+  background-color: yellow;
+}
+
+

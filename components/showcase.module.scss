@@ -1,0 +1,39 @@
+$ligthGrey: #F1F1F1;
+$darkGrey: #808080;
+$white: #FFFFFF;
+$black: #474747;
+$crem: #DE8E8E;
+
+.layout {
+  background-color: $ligthGrey;
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+
+.bar {
+  display: inherit;
+  flex-direction: row;
+  padding: 0 20px;
+  margin: 3rem 0;
+  
+  P {
+    margin: auto 0.3em auto 0;
+    font-family: 'Poppins';
+    font-size: 0.8em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $darkGrey;
+  }
+}
+
+.streamContainer {
+  display: inherit;
+  flex-direction: inherit;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1em;
+
+  list-style-type: none;
+  padding-left: 0;
+}
