@@ -14,17 +14,7 @@ export default function Navigation() {
         <ul>
           <li>
             <Link href='/'>
-              <a>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='#about'>
-              <a>About</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='#contacts'>
-              <a>Contacts</a>
+              <a>BLOG</a>
             </Link>
           </li>
         </ul>

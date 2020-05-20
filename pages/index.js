@@ -9,6 +9,7 @@ import Footer from './../components/footer'
 export default function Home({ allArticles }) {
   return (
     <>
+
       <Head>
         <title>GATW</title>
       </Head>

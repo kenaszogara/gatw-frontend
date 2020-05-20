@@ -2,6 +2,7 @@ import Head from 'next/head'
 import LayoutPost from './../../components/layoutPost'
 import Navigation from './../../components/navigation'
 import Date from './../../components/date'
+import Footer from './../../components/footer'
 import { getArticlesId, getArticle } from './../../lib/articles'
 import utilStyles from './../../styles/utils.module.css'
 
@@ -46,6 +47,7 @@ export default function Articles({ article }) {
           <div dangerouslySetInnerHTML={{ __html: content }} />
         </article>
       </LayoutPost>
+      <Footer />
     </>
     
   )

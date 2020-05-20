@@ -19,11 +19,9 @@ export default function ArticlePreview(props) {
           <a><h4>{title}</h4></a>
         </Link>
         <p>{description}</p>
-        <ButtonOutlined>
           <Link href='/articles/[id]' as={`/articles/${id}`}>
-            <a>Read More..</a>
+            <a><ButtonOutlined>Read More..</ButtonOutlined></a>
           </Link>
-        </ButtonOutlined>
       </div>
       <div className={styles.footer}>
         <div style={{ color: '#808080' }}>

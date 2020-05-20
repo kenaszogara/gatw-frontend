@@ -7,7 +7,7 @@ export const ButtonOutlined = styled.div`
 
   margin-top: 10px;
   padding: 0.4em 2em;
-  font-size: 12px;
+  font-size: 14px;
 
   font-family: 'Poppins';
   font-weight: 800;
