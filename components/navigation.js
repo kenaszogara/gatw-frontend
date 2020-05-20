@@ -4,7 +4,7 @@ import styles from './navigation.module.scss'
 
 export default function Navigation() {
   return(
-    <div>
+    <div style={{borderBottom: '2px solid #f3f3f3'}}>
       <nav className={styles.navigation}>
         <Link href='/'>
           <a className={styles.mrAuto}>

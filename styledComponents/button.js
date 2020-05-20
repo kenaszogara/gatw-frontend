@@ -4,20 +4,25 @@ export const ButtonOutlined = styled.div`
   transition: 0.4s ease;
 
   border: 1px solid black;
-  padding: 0.5em 2em;
+
+  margin-top: 10px;
+  padding: 0.4em 2em;
+  font-size: 12px;
 
   font-family: 'Poppins';
   font-weight: 800;
-  font-size: 1.2em;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 
-  margin-top: 0.8em;
 
   &:hover {
     color: white;
     background-color: black;
     cursor: pointer;
+    
+    a {
+      color: white;
+    }
   }
 `
 

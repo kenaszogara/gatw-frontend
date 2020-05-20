@@ -13,8 +13,8 @@ export default function Hero() {
         <div className={styles.heroText}>
           <h1>Guardians Around The World</h1>
           <h4>Embrace the Myths</h4>
-
-          <section className={styles.categoryContainer} style={{ visibility: 'true' }}>
+          
+          <section className={styles.categoryContainer} style={{ display: 'none' }}>
             <ButtonRounded>
               <span>#Indonesia</span>
             </ButtonRounded>
@@ -26,13 +26,15 @@ export default function Hero() {
             </ButtonRounded>
           </section>
 
-          <section style={{ visibility: 'true' }}>
+          <section style={{ display: 'none' }}>
             <p><span className={styles.markedText}>Select a country of interest, or explore all stories</span></p>
             <ButtonOutlined>
               <span>Explore</span>
             </ButtonOutlined>
           </section>
         </div>
+        <br />
+        <br />
       </div>
     </>
   )
