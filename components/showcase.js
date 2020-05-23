@@ -11,12 +11,13 @@ export default function Showcase({ articles }) {
             <li key={article.id}>
               <ArticlePreview
                 id={article.id}
-                tag={article.tag}
-                title={article.title}
-                description={article.description}
-                author={article.author}
+                slug={article.slug}
+                title={article.title.rendered}
+                excerpt={article.acf.excerpt}
                 date={article.date}
-                image={article.image}
+                author={article.author}
+                image={article.acf.featured_image.url}
+                image_alt={article.acf.featured_image.alt}
               />
             </li>
           ))}

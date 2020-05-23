@@ -3,48 +3,39 @@ import LayoutPost from './../../components/layoutPost'
 import Navigation from './../../components/navigation'
 import Date from './../../components/date'
 import Footer from './../../components/footer'
-import { getArticlesId, getArticle } from './../../lib/articles'
+import { getArticlesPathId, getArticleBySlug, getAuthor } from './../../lib/articles'
 import utilStyles from './../../styles/utils.module.css'
 
-export default function Articles({ article }) {
-  const { title, description, author, date, image, image_desc, content, tag } = article
+export default function Articles({ article, author }) {
+  const { title, acf, date, content } = article
+  const { name, avatar_urls } = author
   return (
     <>
       <Navigation />
       <LayoutPost>
         <Head>
-          <title>{title}</title>
+          <title>{title.rendered}</title>
           {/** some meta for Google SEO ini nanti aja */}
           <meta
-            name={title}
-            content={description}
+            name={title.rendered}
+            content={acf.excerpt}
           />
-          <meta name="og:title" content={title} />
+          <meta name="og:title" content={title.rendered} />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
 
         <article>
-          <h1 className={utilStyles.headingLg}>{title}</h1>
-          <p className={utilStyles.subText}>{description}</p>
-          <div className={utilStyles.altText} >
-            <span style={{ marginRight: '1em', color: 'black' }}>By {author}</span>
+          <h1 className={utilStyles.headingLg}>{title.rendered}</h1>
+          <p className={utilStyles.subText}>{acf.excerpt}</p>
+          <div className={utilStyles.altText} style={{ display: 'flex' }}>
+            <div>
+              <img src={avatar_urls[24]} style={{ marginRight: '0.6rem', borderRadius: '50%' }}/>
+            </div>
+            <span style={{ marginRight: '1em', color: 'black' }}>By {name} </span>
             <Date dateString={date}/>
           </div>
           
-          {
-            image &&
-            <div style={{
-              margin: '2em 0',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
-            }}>
-              <img src={`/images/articles/${image}`} alt={image_desc} />
-              <p className={utilStyles.altText}>{image_desc}</p>
-            </div>
-          }
-          
-          <div dangerouslySetInnerHTML={{ __html: content }} />
+          <div style={{ lineHeight: '1.8rem'}} dangerouslySetInnerHTML={{ __html: content.rendered }} />
         </article>
       </LayoutPost>
       <Footer />
@@ -55,7 +46,7 @@ export default function Articles({ article }) {
 
 
 export async function getStaticPaths() {
-  const paths = getArticlesId()
+  const paths = await getArticlesPathId()
   return {
     paths,
     fallback: false
@@ -63,10 +54,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const article = await getArticle(params.id)
+  const article = await getArticleBySlug(params.id)
+  const author = await getAuthor(article.author)
   return {
     props: {
-      article
+      article: article,
+      author: author,
     }
   }
 }

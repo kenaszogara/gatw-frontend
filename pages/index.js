@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { getSortedArticles } from './../lib/articles'
+import { getSortedArticles, getAll } from './../lib/articles'
 import Navigation from './../components/navigation'
 import Hero from './../components/hero'
 import Showcase from './../components/showcase'
@@ -26,10 +26,11 @@ export default function Home({ allArticles }) {
 }
 
 export async function getStaticProps() {
-  const allArticles = getSortedArticles()
+  const allArticles = await getSortedArticles()
   return {
     props: {
       allArticles
     }
   }
 }
+
