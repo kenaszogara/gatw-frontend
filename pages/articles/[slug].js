@@ -11,55 +11,57 @@ import { getAllArticlesWithSlug, getArticle } from '../../lib/articles'
 import utilStyles from './../../styles/utils.module.css'
 
 export default function Articles({ article }) {
-  const { title, excerpt, published_at, author, content, ogImage, coverImage } = article
-
   const router = useRouter()
-  if (!router.isFallback && !article.slug) {
+  if (!router.isFallback && article.length == 0) {
     return <ErrorPage statusCode={404} />
   }
 
   return (
     <>
       <Navigation />
-
-      {/** cover image */}
-      <img
-        src={`${coverImage.url.startsWith('/') ? process.env.NEXT_PUBLIC_API_URL : ''}${coverImage.url}`}
-        style={{ marginTop: '5rem', objectFit: 'cover', height: '700px', width: '100%'}}
-      />
-      
-      <LayoutPost>
-        <Head>
-          <title>{title}</title>
-          {/** some meta for Google SEO ini nanti aja */}
-          <meta
-            name={title}
-            content={excerpt}
+      {router.isFallback ? (
+        <h1>Loading...</h1>
+      ) : (
+        <>
+          {/** cover image */}
+          <img
+            src={`${article.coverImage.url.startsWith('/') ? process.env.NEXT_PUBLIC_API_URL : ''}${article.coverImage.url}`}
+            style={{ marginTop: '5rem', objectFit: 'cover', height: '700px', width: '100%' }}
           />
-          <meta name="og:title" content={title} />
-          <meta property="og:image" content={ogImage.url} />
-        </Head>
 
-        <article>
-          <h1 className={utilStyles.headingLg}>{title}</h1>
-          <div className={utilStyles.altText} style={{ display: 'flex' }}>
-            <div>
-              <img 
-                src={`${author.picture.url.startsWith('/') ? process.env.NEXT_PUBLIC_API_URL : ''}${author.picture.url}`} 
-                style={{ marginRight: '0.6rem', borderRadius: '50%', height: '33px', width: '33px' }}
+          <LayoutPost>
+            <Head>
+              <title>{article.title}</title>
+              {/** some meta for Google SEO ini nanti aja */}
+              <meta
+                name={article.title}
+                content={article.excerpt}
               />
-            </div>
-            <span style={{ marginRight: '1em', color: 'black' }}>By {author.name} </span>
-            <Date dateString={published_at}/>
-          </div>
-          
-          <ReactMarkdown source={content} style={{ lineHeight: '1.8rem' }} />
-        </article>
+              <meta name="og:title" content={article.title} />
+              <meta property="og:image" content={article.ogImage.url} />
+            </Head>
 
-      </LayoutPost>
-      <Footer />
+            <article>
+              <h1 className={utilStyles.headingLg}>{article.title}</h1>
+              <div className={utilStyles.altText} style={{ display: 'flex' }}>
+                <div>
+                  <img
+                    src={`${article.author.picture.url.startsWith('/') ? process.env.NEXT_PUBLIC_API_URL : ''}${article.author.picture.url}`}
+                    style={{ marginRight: '0.6rem', borderRadius: '50%', height: '33px', width: '33px' }}
+                  />
+                </div>
+                <span style={{ marginRight: '1em', color: 'black' }}>By {article.author.name} </span>
+                <Date dateString={article.published_at} />
+              </div>
+
+              <ReactMarkdown source={article.content} style={{ lineHeight: '1.8rem' }} />
+            </article>
+
+          </LayoutPost>
+          <Footer />
+        </>
+      )}
     </>
-    
   )
 }
 
