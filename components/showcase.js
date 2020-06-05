@@ -10,14 +10,7 @@ export default function Showcase({ articles }) {
           {articles.map(article => (
             <li key={article.id}>
               <ArticlePreview
-                id={article.id}
-                slug={article.slug}
-                title={article.title.rendered}
-                excerpt={article.acf.excerpt}
-                date={article.date}
-                author={article.author}
-                image={article.acf.featured_image.url}
-                image_alt={article.acf.featured_image.alt}
+                article={article}
               />
             </li>
           ))}

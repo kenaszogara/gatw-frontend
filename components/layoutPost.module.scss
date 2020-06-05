@@ -5,6 +5,7 @@
   align-items: center;
 
   margin-bottom: 4em;
+  min-height: calc(100vh - 66px - 72px - 300px);
 }
 
 .content {
@@ -29,5 +30,5 @@
 }
 
 .backToHome {
-  margin: 3rem 0 0;
+  margin: 10rem 0 0;
 }
